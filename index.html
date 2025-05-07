@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prueba 2</title>
+	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616408.png" type="image/png" sizes="16x16">
+	<style>
+		body {
+			background-color: white;
+			transition: background-color 0.5s ease;
+		}
+	</style>	
 <body>
-	<h1>prueba 2</h1>
+    <h1>prueba 2</h1>
+    <p>Hola mundo</p>
+    <!-- Botón para cambiar el fondo a azul -->
+    <button id="btn-blue" style="background-color: blue; color: white;">Cambiar color a azul</button>
+    <!-- Botón para cambiar el fondo a rojo -->
+    <button id="btn-red" style="background-color: red; color: white;">Cambiar color a rojo</button>
+    <script>
+        // Seleccionamos los botones por sus ids
+        const btnBlue = document.getElementById('btn-blue');
+        const btnRed = document.getElementById('btn-red');
+        // Variable para guardar el color anterior
+        let previousColor = document.body.style.backgroundColor || 'white';
+
+        // Evento para el botón azul
+        btnBlue.addEventListener('click', function() {
+            const currentColor = document.body.style.backgroundColor;
+
+            // Cambiamos el color al color anterior o a azul
+            document.body.style.backgroundColor = currentColor === 'blue' ? previousColor : 'blue';
+
+            // Cambiamos el color del botón al color blanco si el fondo es azul, o azul si no lo es
+            btnBlue.style.backgroundColor = currentColor === 'blue' ? 'blue' : 'white';
+            btnBlue.style.color = currentColor === 'blue' ? 'white' : 'black';
+
+            // Guardamos el color actual como el anterior
+            previousColor = currentColor;
+        });
+
+        // Evento para el botón rojo
+        btnRed.addEventListener('click', function() {
+            const currentColor = document.body.style.backgroundColor;
+
+            // Cambiamos el color al color anterior o a rojo
+            document.body.style.backgroundColor = currentColor === 'red' ? previousColor : 'red';
+
+            // Cambiamos el color del botón al color blanco si el fondo es rojo, o rojo si no lo es
+            btnRed.style.backgroundColor = currentColor === 'red' ? 'red' : 'white';
+            btnRed.style.color = currentColor === 'red' ? 'white' : 'black';
+
+            // Guardamos el color actual como el anterior
+            previousColor = currentColor;
+        });
+    </script>
 </body>
 </html>
